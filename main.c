@@ -110,7 +110,7 @@ int main(){
 	srand((unsigned) time(NULL));
 
 	int size  = 15;
-	int lifes = 2;
+	int lifes = 20;
 	int shots = 0;
 	
 	char **map  = inimap(size, '~');
