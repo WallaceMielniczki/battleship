@@ -19,6 +19,8 @@ void show(char **map, int size){
 
 void create(char **map, int size){
 
+	srand((unsigned) time(NULL));
+
 	char ship[5][2] = {{5,1},{4,2},{3,3},{2,4},{1,5}};
 
 	for (int i = 0; i < 5; ++i){
@@ -107,11 +109,10 @@ int main(){
 	printf("=                                                       =\n");
 	printf("=========================================================\n\n");
 
-	srand((unsigned) time(NULL));
-
-	int size  = 15;
-	int lifes = 2;
-	int shots = 0;
+	int size     = 15;
+	int lifes    = 20;
+	int shots    = 0;
+	int gameover = 0;
 	
 	char **map  = inimap(size, '~');
 	char **mask = inimap(size, '.');
@@ -120,8 +121,8 @@ int main(){
 	info(lifes, shots);
 	show(mask, size);
 
-	while(lifes){
-		
+	while(!gameover){
+
 		char *pos = malloc(3);
 
 		printf("\nENTER THE COORDINATES: ");
@@ -139,9 +140,12 @@ int main(){
 		show(mask, size);
 
 		if(lifes == 0){
-			printf("\nGAME OVER!!!\n");
 
+			gameover = 1;
+			printf("\nGAME OVER!!!\n"); 
 		}else if(shots == 30){
+
+			gameover = 1;
 			printf("\nYOU WINS!!!\n");
 		}
 	}
