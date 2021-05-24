@@ -109,18 +109,16 @@ int main(){
 	printf("=                                                       =\n");
 	printf("=========================================================\n\n");
 
-<<<<<<< HEAD
 	int size     = 15;
 	int lifes    = 20;
 	int shots    = 0;
 	int gameover = 0;
-=======
+
 	srand((unsigned) time(NULL));
 
 	int size  = 15;
 	int lifes = 20;
 	int shots = 0;
->>>>>>> c05e19c6ead4a76abe1bd9bdf7cec411e47c5968
 	
 	char **map  = inimap(size, '~');
 	char **mask = inimap(size, '.');
